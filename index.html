@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MovieX | Movie Discovery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <span>✦</span> MOVIEX
+  </div>
+
+  <nav>
+    <button class="nav-btn active" onclick="showHome()">Home</button>
+    <button class="nav-btn" onclick="showFavorites()">Favorites</button>
+  </nav>
+
+  <div class="nav-right">
+    <span class="status-dot"></span>
+    Discover
+  </div>
+</header>
+
+<main>
+
+<section id="homeSection">
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">YOUR NEXT FAVORITE MOVIE</p>
+      <h1>Find something<br><span>worth watching.</span></h1>
+      <p class="hero-text">
+        Explore popular movies, discover hidden gems and build your personal watchlist.
+      </p>
+
+      <div class="search-box">
+        <span>⌕</span>
+        <input id="searchInput" type="text" placeholder="Search movies...">
+        <button onclick="searchMovies()">Search</button>
+      </div>
+
+      <div class="quick-tags">
+        <button onclick="quickSearch('Avengers')">Avengers</button>
+        <button onclick="quickSearch('Batman')">Batman</button>
+        <button onclick="quickSearch('Inception')">Inception</button>
+        <button onclick="quickSearch('Interstellar')">Interstellar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="movie-section">
+    <div class="section-heading">
+      <div>
+        <p class="section-label">TRENDING NOW</p>
+        <h2 id="sectionTitle">Popular Movies</h2>
+      </div>
+      <button class="outline-btn" onclick="loadPopular()">Refresh ↻</button>
+    </div>
+
+    <div id="movieGrid" class="movie-grid">
+      <div class="loader">Loading movies...</div>
+    </div>
+  </section>
+
+</section>
+
+<section id="favoritesSection" class="hidden">
+  <div class="page-heading">
+    <p class="section-label">YOUR COLLECTION</p>
+    <h1>Favorite Movies</h1>
+    <p>Movies you've decided to keep close.</p>
+  </div>
+
+  <div id="favoritesGrid" class="movie-grid"></div>
+</section>
+
+</main>
+
+<div id="movieModal" class="modal hidden">
+  <div class="modal-overlay" onclick="closeModal()"></div>
+
+  <div class="movie-modal">
+    <button class="close-btn" onclick="closeModal()">×</button>
+
+    <div id="modalContent">
+      <div class="loader">Loading...</div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<footer>
+  <div>
+    <strong>✦ MOVIEX</strong>
+    <p>Discover. Save. Watch.</p>
+  </div>
+
+  <div class="tmdb-note">
+    This product uses the TMDB API but is not endorsed or certified by TMDB.
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
